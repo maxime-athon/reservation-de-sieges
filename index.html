@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de Billets</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div id="step1-selection-film" class="step active">
+            <h1>Réservez votre séance 🎟️</h1>
+            <div class="form-group">
+                <label for="film">Choisissez un film :</label>
+                <select id="film">
+                    <option value="15">Lilo & Stitch (15 €)</option>
+                    <option value="20">Le Roi Lion (20 €)</option>
+                    <option value="12">Moi, Moche et Méchant (12 €)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Choisissez une date :</label>
+                <input type="date" id="date" required>
+            </div>
+            <button id="btn-vers-sieges" class="btn">Choisir les places</button>
+        </div>
+
+        <div id="step2-selection-sieges" class="step">
+            <h1 id="titre-film-sieges">Sélectionnez vos places</h1>
+            <div class="cinema-container">
+                <div class="ecran"></div>
+                <div id="plan-sieges" class="plan-sieges">
+                    </div>
+            </div>
+            <ul class="legende">
+                <li>
+                    <div class="siege"></div>
+                    <small>Libre</small>
+                </li>
+                <li>
+                    <div class="siege selectionne"></div>
+                    <small>Sélectionné</small>
+                </li>
+                <li>
+                    <div class="siege occupe"></div>
+                    <small>Occupé</small>
+                </li>
+            </ul>
+            <div class="recapitulatif">
+                <p>Vous avez sélectionné <span id="nombre-sieges">0</span> siège(s) pour un total de <span id="prix-total">0</span> €.</p>
+                <div class="sieges-selectionnes-liste">
+                    <span>Sièges : </span>
+                    <span id="liste-sieges-selectionnes">Aucun</span>
+                </div>
+            </div>
+            <div class="navigation-buttons">
+                <button id="btn-retour-film" class="btn btn-secondary">Retour</button>
+                <button id="btn-vers-paiement" class="btn">Procéder au paiement</button>
+            </div>
+        </div>
+
+        <div id="step3-paiement" class="step">
+            <h1>Paiement</h1>
+            <form id="form-paiement">
+                <div class="form-group">
+                    <label for="nom">Nom complet</label>
+                    <input type="text" id="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="carte">Numéro de carte (simulation)</label>
+                    <input type="text" id="carte" placeholder="xxxx xxxx xxxx xxxx" required>
+                </div>
+                <button type="submit" class="btn">Confirmer le paiement</button>
+            </form>
+        </div>
+
+        <div id="step4-confirmation" class="step">
+            <h1>Réservation confirmée ! 🎉</h1>
+            <p>Merci pour votre achat. Un email de confirmation a été envoyé à <strong id="email-confirmation"></strong>.</p>
+            <p><strong>Film :</strong> <span id="film-confirm"></span></p>
+            <p><strong>Date :</strong> <span id="date-confirm"></span></p>
+            <p><strong>Sièges :</strong> <span id="sieges-confirm"></span></p>
+            <p><strong>Total payé :</strong> <span id="total-confirm"></span> €</p>
+            <button id="btn-nouvelle-reservation" class="btn">Nouvelle réservation</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

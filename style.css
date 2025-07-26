@@ -1,0 +1,230 @@
+/* --- Variables et Style de Base --- */
+:root {
+    --couleur-fond: #141414;
+    --couleur-texte: #ffffff;
+    --couleur-principale: #e50914; /* Rouge Netflix */
+    --couleur-secondaire: #4db8ff; /* Bleu pour la sélection */
+    --couleur-sombre: #222;
+    --couleur-gris: #555;
+    --police: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    font-family: var(--police);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Conteneur Principal et Étapes --- */
+.container {
+    background-color: var(--couleur-sombre);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 800px;
+}
+
+.step {
+    display: none; /* Caché par défaut */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.step.active {
+    display: flex; /* Affiché si actif */
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: var(--couleur-principale);
+}
+
+/* --- Éléments de Formulaire --- */
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+select, input[type="date"], input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--couleur-gris);
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    font-size: 1rem;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: var(--couleur-secondaire);
+}
+
+/* --- Boutons --- */
+.btn {
+    background-color: var(--couleur-principale);
+    color: var(--couleur-texte);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #f40612;
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    background-color: var(--couleur-gris);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn.btn-secondary {
+    background-color: var(--couleur-gris);
+}
+.btn.btn-secondary:hover {
+    background-color: #666;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* --- Plan des Sièges --- */
+.cinema-container {
+    perspective: 1000px; /* Pour l'effet 3D de l'écran */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.ecran {
+    background-color: #fff;
+    height: 100px;
+    width: 80%;
+    margin: 20px auto;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.plan-sieges {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.siege {
+    background-color: #444;
+    height: 30px;
+    width: 35px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.siege:not(.occupe):hover {
+    transform: scale(1.1);
+    background-color: #666;
+}
+
+.siege.selectionne {
+    background-color: var(--couleur-secondaire);
+}
+
+.siege.occupe {
+    background-color: var(--couleur-gris);
+    cursor: not-allowed;
+}
+
+/* --- Légende et Récapitulatif --- */
+.legende {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background-color: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.legende li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.recapitulatif {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.recapitulatif p {
+    margin-bottom: 10px;
+}
+
+#prix-total, #nombre-sieges {
+    color: var(--couleur-secondaire);
+    font-weight: 700;
+}
+
+#liste-sieges-selectionnes {
+    font-style: italic;
+    color: #ccc;
+}
+
+
+/* --- Confirmation --- */
+#step4-confirmation p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+#step4-confirmation strong {
+    color: var(--couleur-secondaire);
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    .plan-sieges {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 5px;
+    }
+    .siege {
+        height: 25px;
+        width: 30px;
+    }
+    .container {
+        padding: 20px;
+    }
+}
