@@ -7,8 +7,7 @@ Ce projet est une application web front-end qui propose une interface simple et 
 
 ## ## Aperçu Visuel
 
-Cette section est destinée à présenter une capture d'écran ou un GIF animé de l'application en action, montrant l'interface sur ordinateur et sur mobile.
-
+Voici un apperçu du projet **[Réservation de Sieges pour la salle de cinema](https://maxime-athon.github.io/reservation-de-sieges/)
 ---
 
 ## ## Fonctionnalités
